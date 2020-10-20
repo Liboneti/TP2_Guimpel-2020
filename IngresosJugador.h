@@ -9,7 +9,7 @@ estarlo la define*/
 char* ingresoArchivo();
 
 //Ingreso por teclado de los datos de jugadores
-Nodo* ingresaJugadorPorTeclado(Nodo* inicio);
+Nodo* ingresaJugadorPorTeclado(Nodo* inicio, char* nombreArchivo);
 
 //Ingreso de la edad maxima en modo 1 y la minima en modo 2 de la edad
 int ingresaRangoDeEdad(int modo);

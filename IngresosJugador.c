@@ -17,7 +17,7 @@ char* ingresoArchivo(){
 	return nombre;
 }
 
-Nodo* ingresaJugadorPorTeclado(Nodo* inicio){
+Nodo* ingresaJugadorPorTeclado(Nodo* inicio, char* nombreArchivo){
 	Jugador jugador = malloc(sizeof(_Jugador));
 	char buffer[150];
 
@@ -40,6 +40,11 @@ Nodo* ingresaJugadorPorTeclado(Nodo* inicio){
 	scanf("%d", &jugador->edad);
 
     inicio = agregaJugador(inicio, jugador);
+
+	FILE* file = fopen(nombreArchivo, "a");
+
+	escribeJugadorEnArchivo(jugador, file);
+	fclose(file);
 
 	free(jugador->nombre);
 	free(jugador->club);
