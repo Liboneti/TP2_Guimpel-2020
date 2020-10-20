@@ -41,6 +41,10 @@ Nodo* ingresaJugadorPorTeclado(Nodo* inicio){
 
     inicio = agregaJugador(inicio, jugador);
 
+	free(jugador->nombre);
+	free(jugador->club);
+	free(jugador);
+
 	return inicio;
 }
 

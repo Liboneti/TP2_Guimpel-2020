@@ -23,11 +23,8 @@ Jugador creaJugador(){
 }
 
 Nodo* agregaJugador(Nodo* inicio, Jugador j){
-	printf("So long... ");
 	Nodo* nuevoNodo = malloc(sizeof(Nodo));
-	printf("... ");
 	nuevoNodo->jug = malloc(sizeof(_Jugador));
-	printf("Gay bowser...");
 	nuevoNodo->jug->nombre = malloc(sizeof(char)*strlen(j->nombre)+1);
 	nuevoNodo->jug->club = malloc(sizeof(char)*strlen(j->club)+1);
 	strcpy(nuevoNodo->jug->nombre, j->nombre);
@@ -56,7 +53,6 @@ Nodo* leeNodoDelArchivo(Nodo* inicio, char *nombreArchivo) {
 	FILE* file = fopen(nombreArchivo, "r");
 	Jugador j = creaJugador();
 	while(leeJugadorDelArchivo(j, file) != EOF){
-		printf("Me estoy volviendo pelotudo en loop\n");
 		inicio = agregaJugador(inicio, j);
 	}
 	free(j->nombre);
@@ -119,18 +115,18 @@ void menu(){
 			mostrarLista(inicio);
 			break;
 		
-		//case 2:
-			inicio = ingresaJugadorPorTeclado(inicio);
-			break;
+		case 2:
+		 	inicio = ingresaJugadorPorTeclado(inicio);
+		 	break;
 
 		//case 3:
-			recuperaJugadoresPorEdad(inicio, ingresaRangoDeEdad(1), ingresaRangoDeEdad(2));
-			break;
+		// 	recuperaJugadoresPorEdad(inicio, ingresaRangoDeEdad(1), ingresaRangoDeEdad(2));
+		// 	break;
 
 		//case 4:
-			escribeNodoEnArchivo(inicio, nombreArchivo);
-			salida=1;
-			break;
+		// 	escribeNodoEnArchivo(inicio, nombreArchivo);
+		// 	salida=1;
+		// 	break;
 		default:
 			printf("Ingreso invalido. Pruebe de vuelta...\n\n");
 			freeBuffer();
