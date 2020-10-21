@@ -58,10 +58,12 @@ int ingresaRangoDeEdad(int modo){
 	if(modo==1){
 		printf("Ingrese la edad maxima para la busqueda: ");
 		scanf("%d", &rango);
+		freeBuffer();
 	}
 	else if(modo==2){
 		printf("Ingrese la edad minima para la busqueda: ");
 		scanf("%d", &rango);
+		freeBuffer();
 	}
 	return rango;
 }

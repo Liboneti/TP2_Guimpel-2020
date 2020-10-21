@@ -17,7 +17,7 @@ int main(int argc, char *argv[]){
 
 	while(salida==0){
 		limpiarPantalla();
-		printf("\n\tMENU\n"
+		printf("\tMENU\n"
 		"1- Mostrar lista\n"
 		"2- Agregar jugadores a la lista\n"
 		"3- Recuperar jugadores por edad\n"
@@ -28,23 +28,27 @@ int main(int argc, char *argv[]){
 		switch(ingreso)
 		{
 		case 1:
+			limpiarPantalla();
 			mostrarLista(inicio);
 			break;
 		
 		case 2:
+			limpiarPantalla();
 		 	inicio = ingresaJugadorPorTeclado(inicio, nombreArchivo);
 		 	break;
 
-		//case 3:
-		// 	recuperaJugadoresPorEdad(inicio, ingresaRangoDeEdad(1), ingresaRangoDeEdad(2));
-		// 	break;
+		case 3:
+			limpiarPantalla();
+			inicio = recuperaJugadoresPorEdad(inicio, ingresaRangoDeEdad(1), ingresaRangoDeEdad(2));
+			break;
 
 		case 4:
+			limpiarPantalla();
 			salida=1;
 			break;
 		default:
+			limpiarPantalla();
 			printf("Ingreso invalido. Pruebe de vuelta...\n\n");
-			freeBuffer();
 			break;
 		}
 	}

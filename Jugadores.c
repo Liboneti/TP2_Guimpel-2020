@@ -71,7 +71,35 @@ Nodo* leeNodoDelArchivo(Nodo* inicio, char *nombreArchivo) {
 }
 
 Nodo* recuperaJugadoresPorEdad(Nodo* inicio, int edadMax, int edadMin){
+	int cantJugadores=0;
+	if(inicio==NULL){
+		printf("Aun no se han ingresado jugadores.\n"
+		"Presione enter para continuar\n\n");
+		freeBuffer();
+		return inicio;
+	}
+	if(edadMax<edadMin){
+		printf("Las edades fueron ingresadas erroneamente; la edad mayor (%d) es menor que la menor (%d).\n"
+		"Presione enter para continuar...\n\n", edadMax, edadMin);
+		freeBuffer();
+		return inicio;
+	}
+	Nodo* aux = inicio;
 
+	for(; aux != NULL; aux = aux->sig){
+		if(aux->jug->edad <= edadMax && aux->jug->edad >= edadMin){
+			printf("%s, %s, %d, %d\n", aux->jug->nombre, aux->jug->club, aux->jug->posicion, aux->jug->edad);
+			cantJugadores++;
+		}
+	}
+	if(cantJugadores==0){
+		printf("El rango de busqueda es invalido. No se ha encontrado ningun jugador");
+
+	}
+	printf("\nPresione enter para continuar...\n\n");
+	freeBuffer();
+
+	return inicio;
 }
 
 void escribeJugadorEnArchivo(Jugador j, FILE* file){
