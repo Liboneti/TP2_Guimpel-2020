@@ -31,9 +31,17 @@ Nodo* agregaJugador(Nodo* inicio, Jugador j){
 	strcpy(nuevoNodo->jug->club, j->club);
 	nuevoNodo->jug->posicion = j->posicion;
 	nuevoNodo->jug->edad = j->edad;
-	nuevoNodo->sig = inicio;
+	nuevoNodo->sig = NULL;
 
-	return nuevoNodo;
+	if(inicio==NULL){
+		return nuevoNodo;
+	}
+
+	Nodo* aux = inicio;
+	for(; aux->sig != NULL; aux = aux->sig);
+	aux->sig = nuevoNodo;
+
+	return inicio;
 }
 
 int  leeJugadorDelArchivo(Jugador j, FILE* file){
